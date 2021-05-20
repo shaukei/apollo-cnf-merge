@@ -1,0 +1,19 @@
+  {
+    "name": "freya/apollo-cnf-merge",
+    "description": "Apollo配置更新文件",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "Apollo", "file", "ini", "php", "merge"
+    ],
+    "homepage": "https://github.com/shaukei/apollo-cnf-merge",
+    "require": {
+        "php": ">=5.6",
+        "apollo-sdk/config": "^1.0.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Freya\\ApolloCnf\\": "src/"
+        }
+    }
+}
