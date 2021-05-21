@@ -1,5 +1,5 @@
   {
-    "name": "freya/apollo-cnf-merge",
+    "name": "fer/apollo-cnf-merge",
     "description": "Apollo配置更新文件",
     "type": "library",
     "license": "MIT",
