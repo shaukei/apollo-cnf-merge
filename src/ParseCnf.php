@@ -12,7 +12,7 @@ class ParseCnf
         $this->setCnfs($cnfs);
     }
 
-    public function parseCnf()
+    public function parse()
     {
         if (empty($this->cnfs)) {
             return null;

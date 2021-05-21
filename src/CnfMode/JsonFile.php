@@ -6,6 +6,8 @@ use Freya\ApolloCnf\CnfModeBase;
 
 class JsonFile extends CnfModeBase
 {
+    protected $fileExt = 'json';
+
     public function encodeCnf(array $cnfs)
     {
         $this->encode = json_encode($cnfs, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
@@ -19,9 +21,7 @@ class JsonFile extends CnfModeBase
 
     public function putCnf()
     {
-        if (is_file($this->path . '/' . $this->filename)) {
-            file_put_contents($this->path . '/' . $this->filename, $this->encode);
-        }
+        file_put_contents($this->path . '/' . $this->filename, $this->encode);
         return $this->encode;
     }
 
@@ -29,6 +29,8 @@ class JsonFile extends CnfModeBase
     {
         if (is_file($this->path . '/' . $this->filename)) {
             $this->orgCnf = json_decode(file_get_contents($this->path . '/' . $this->filename), true);
+        } else {
+            $this->orgCnf = [];
         }
         return $this;
     }

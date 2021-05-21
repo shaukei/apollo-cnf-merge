@@ -16,6 +16,12 @@ abstract class CnfModeBase implements CnfModeInterface
 
     protected $filename = '';
 
+    protected $fileExt = '';
+
+    protected $NSFile = false;
+
+    protected $namespaceName = '';
+
     abstract public function encodeCnf(array $cnfs);
 
     abstract public function mergeCnf();
@@ -24,11 +30,12 @@ abstract class CnfModeBase implements CnfModeInterface
 
     abstract public function loadOrgCnf();
 
-    public function __construct(array $cnfs = [], $path = './', $file = 'default.php')
+    public function __construct(array $cnfs = [], $path = './', $file = 'default.php', $NSFile = false, $namespaceName)
     {
         $this->loadCnfs($cnfs);
-        $this->filename = $file;
         $this->path = $path;
+        $this->namespaceName = $namespaceName;
+        $this->filename = $NSFile ? $namespaceName . '.' . $this->fileExt : $file;
     }
 
     public function update()

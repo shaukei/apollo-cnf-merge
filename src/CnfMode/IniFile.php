@@ -6,6 +6,8 @@ use Freya\ApolloCnf\CnfModeBase;
 
 class IniFile extends CnfModeBase
 {
+    protected $fileExt = 'ini';
+    
     public function encodeCnf(array $cnfs)
     {
 

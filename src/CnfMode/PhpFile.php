@@ -6,6 +6,8 @@ use Freya\ApolloCnf\CnfModeBase;
 
 class PhpFile extends CnfModeBase
 {
+    protected $fileExt = 'php';
+
     public function encodeCnf(array $cnfs)
     {
         $this->encode = '<?php return ' . var_export($cnfs, true) . ';';
@@ -19,9 +21,7 @@ class PhpFile extends CnfModeBase
 
     public function putCnf()
     {
-        if (is_file($this->path . '/' . $this->filename)) {
-            file_put_contents($this->path . '/' . $this->filename, $this->encode);
-        }
+        file_put_contents($this->path . '/' . $this->filename, $this->encode);
         return $this->encode;
     }
 
@@ -29,6 +29,8 @@ class PhpFile extends CnfModeBase
     {
         if (is_file($this->path . '/' . $this->filename)) {
             $this->orgCnf = include $this->path . '/' . $this->filename;
+        } else {
+            $this->orgCnf = [];
         }
         return $this;
     }
