@@ -9,7 +9,7 @@
     "homepage": "https://github.com/shaukei/apollo-cnf-merge",
     "require": {
         "php": ">=5.6",
-        "apollo-sdk/config": "^1.0.5"
+        "apollo-sdk/config": "^1.0.6"
     },
     "autoload": {
         "psr-4": {
