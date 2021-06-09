@@ -20,7 +20,7 @@ class ParseCnf
 
         $cnfs = [];
         foreach($this->cnfs as $key => $val) {
-            $cnfs += $this->parseKey($key, $val);
+            $cnfs = array_merge_recursive($cnfs, $this->parseKey($key, $val));
         }
         return $cnfs;
     }
