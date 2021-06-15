@@ -35,7 +35,15 @@ abstract class CnfModeBase implements CnfModeInterface
         $this->loadCnfs($cnfs);
         $this->path = $path;
         $this->namespaceName = $namespaceName;
-        $this->filename = $NSFile ? $appid . '/' . $namespaceName . '.' . $this->fileExt : $file;
+        if ($NSFile) {
+            $this->filename = $path . '/' . $appid . '/' . $namespaceName . '.' . $this->fileExt;
+            $fullpath = dirname($this->filename);
+            if (!is_dir($fullpath)) {
+                mkdir($fullpath, 0644, true);
+            }
+        } else {
+            $this->filename = $file;
+        }
     }
 
     public function update()
