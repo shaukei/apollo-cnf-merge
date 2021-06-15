@@ -30,12 +30,12 @@ abstract class CnfModeBase implements CnfModeInterface
 
     abstract public function loadOrgCnf();
 
-    public function __construct(array $cnfs = [], $path = './', $file = 'default.php', $NSFile = false, $namespaceName)
+    public function __construct(array $cnfs = [], $path = './', $file = 'default.php', $NSFile = false, $appid, $namespaceName)
     {
         $this->loadCnfs($cnfs);
         $this->path = $path;
         $this->namespaceName = $namespaceName;
-        $this->filename = $NSFile ? $namespaceName . '.' . $this->fileExt : $file;
+        $this->filename = $NSFile ? $appid . '/' . $namespaceName . '.' . $this->fileExt : $file;
     }
 
     public function update()
@@ -46,7 +46,9 @@ abstract class CnfModeBase implements CnfModeInterface
 
     public function loadCnfs(array $cnfs = [])
     {
-        if (empty($cnfs)) return null;
+        if (empty($cnfs)) {
+            return null;
+        }
         $this->cnfs = $cnfs;
     }
 }
