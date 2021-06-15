@@ -21,14 +21,14 @@ class PhpFile extends CnfModeBase
 
     public function putCnf()
     {
-        file_put_contents($this->path . '/' . $this->filename, $this->encode);
+        file_put_contents($this->filename, $this->encode);
         return $this->encode;
     }
 
     public function loadOrgCnf()
     {
-        if (is_file($this->path . '/' . $this->filename)) {
-            $this->orgCnf = include $this->path . '/' . $this->filename;
+        if (is_file($this->filename)) {
+            $this->orgCnf = include $this->filename;
         } else {
             $this->orgCnf = [];
         }

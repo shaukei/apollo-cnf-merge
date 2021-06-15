@@ -21,14 +21,14 @@ class JsonFile extends CnfModeBase
 
     public function putCnf()
     {
-        file_put_contents($this->path . '/' . $this->filename, $this->encode);
+        file_put_contents($this->filename, $this->encode);
         return $this->encode;
     }
 
     public function loadOrgCnf()
     {
-        if (is_file($this->path . '/' . $this->filename)) {
-            $this->orgCnf = json_decode(file_get_contents($this->path . '/' . $this->filename), true);
+        if (is_file($this->filename)) {
+            $this->orgCnf = json_decode(file_get_contents($this->filename), true);
         } else {
             $this->orgCnf = [];
         }

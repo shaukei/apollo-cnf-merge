@@ -42,7 +42,7 @@ abstract class CnfModeBase implements CnfModeInterface
                 mkdir($fullpath, 0644, true);
             }
         } else {
-            $this->filename = $file;
+            $this->filename = $path . '/' . $file;
         }
     }
 
