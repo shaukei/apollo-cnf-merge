@@ -39,7 +39,7 @@ abstract class CnfModeBase implements CnfModeInterface
             $this->filename = $path . '/' . $appid . '/' . $namespaceName . '.' . $this->fileExt;
             $fullpath = dirname($this->filename);
             if (!is_dir($fullpath)) {
-                mkdir($fullpath, 0644, true);
+                mkdir($fullpath, 0755, true);
             }
         } else {
             $this->filename = $path . '/' . $file;
